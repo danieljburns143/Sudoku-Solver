@@ -20,6 +20,7 @@ Cell::~Cell() {}
 // function to set the answer
 void Cell::setAnswer(const int& answer) {
 	this->answer = answer;
+	possibleAnswers.clear();
 }
 
 // function to get the answer
@@ -52,10 +53,18 @@ int Cell::getPossibleAnswersSize() const {
 	return possibleAnswers.size();
 }
 
-// function to print all possible answers for this cell
-void Cell::printPossibleAnswers() {
-	for (auto it = possibleAnswers.begin(); it != possibleAnswers.end(); it++) {
-		cout << *it << " ";
+// function to fill in answer if only 1 possible answer is left
+void Cell::setPossibleAnswerToAnswer() {
+	auto it = possibleAnswers.begin();
+	answer = *it;
+	possibleAnswers.clear();
+}
+
+// function to get a possible answer from the list possibleAnswers
+int Cell::getPossibleAnswer(const int& element) {
+	auto it = possibleAnswers.begin();
+	for (int i{0}; i < element; i++) {
+		it++;
 	}
-	cout << endl;
+	return *it;
 }
