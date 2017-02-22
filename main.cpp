@@ -74,7 +74,7 @@ void singleton(vector< vector< Cell > >& puzzle, int& cellsPlaced) {
 						onlyElementInRow = false;
 					}
 				}
-				if (onlyElementInColumn == true || onlyElementInColumn == true) {
+				if (onlyElementInRow == true || onlyElementInColumn == true) {
 					puzzle[row][column].setAnswer(puzzle[row][column].getPossibleAnswer(element));
 					cellsPlaced--;
 					reducePossibleAnswersByRowAndColumn(puzzle);
